@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+<script>
+ console.log("person1: shows ticket");
+ console.log("person2: shows ticket"); 
+ console.log("checker: Show me the ticket");
+ console.log("Husband: we need some time first we want to buy popcorn and then we go in");
+ console.log("checker: ok then let me check other's tickets");  
+
+function showingTicket(){
+    return new Promise((res, rej) => {
+        res("Ticket")
+    },3000)
+}
+
+function buyingPopcorn(){
+    return new Promise((res, rej) => {
+        res("Popcorn")
+    },3000)
+}
+
+
+
+async function movie () {
+    
+    const popcorn = await buyingPopcorn()
+    await console.log("Husband Baught some " + popcorn)
+    const ticket = await showingTicket()
+    await console.log("Husband: here is our " + ticket)
+    await console.log("checker: Ok, now you can go in");
+
+}
+
+movie();
+console.log("person4: shows ticket");
+console.log("person5: shows ticket");
+
+</script>
+</body>
+</html>
